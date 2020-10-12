@@ -9,17 +9,19 @@ os.system('clear') # linux
 ######################## exercice 1 ####################################
 
 def exo1():
+    # c = choices(["un","deux","trois","quatre","cinq","six"], k=10000)
     c = choices(["un","deux","trois","quatre","cinq","six"], k=10000)
     # shuffle (c)
-    print("len c:", len(c))
-    six = c.count("six")/10000
-    print (six)
+    # print("len c:", len(c))
+    # six = c.count("six")/10000
+    # print (six)
 
-    c = c[:1000]
-    print("len:", len(c))   
-    quatre = c.count("quatre")/1000
-    print (quatre)
-    return (six,quatre)
+    # # c = c[:1000]
+    # # print("len:", len(c))   
+    # # quatre = c[:1000].count("quatre")/1000
+    # # print (quatre)
+    # # return (six,quatre)
+    return (c.count("six")/10000, c[:1000].count("quatre")/1000)
 # print ("un:", c.count("six")/10000)
 # print ("deux:", c.count("deux")/1000)
 # print ("trois:", c.count("trois")/1000)
