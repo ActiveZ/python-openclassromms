@@ -82,6 +82,7 @@ k = 0
 # méthode ternaire
 for i in range(1000000):
     k += tirage_A() if randint(0,1) == 0 else tirage_B(k)
-    print("le ciel est", "bleu" if randint(0,1) == 0 else "gris")
-
 print(k)
+
+print("le ciel est", "bleu" if randint(0,1) == 0 else "gris")
+
