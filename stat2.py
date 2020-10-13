@@ -30,32 +30,58 @@ def exo1():
 
 six = 0
 quatre = 0
+# res = (x,y) = (0,0)
 for i in range(5):
     a = exo1()
     six += a[0]
     quatre += a[1]
+    # res = tuple(map(sum,zip(res, (a[0],a[1]))))
+    # print(res[0]/(i+1),res[1]/(i+1))
+
+
+# x = sum(exo1()[0] for i in range (5))/5
+
 
 print("six:", six/5)
 print("quatre:",quatre/5)
-exit()
+# exit()
 
 
 ######################## exercice 2 #######################################
+
+os.system('cls') # windows
+os.system('clear') # linux
+
 def tirage_A():
-    return choices('PF', cum_weights=(0.49,1), k=1000000).count('P')/1000000
+    return choices([1,-1], cum_weights=(0.49,1))[0]
 
 # x = sum(tirage_A() for i in range(10_000)) / 10_000
-# print(x)
-print(tirage_A())
+# print('A:',x)
+# print(tirage_A())
 
 
-def tirage_B():
-    p1 = choices('PF', cum_weights=(0.09,1), k=1000000).count('P')/1000000
-    p2 = choices('PF', cum_weights=(0.74,1), k=1000000).count('P')/1000000
-print(tirage_B())
+def tirage_B(k):
+    if k%3:
+        return choices([1,-1], cum_weights=(0.74,1))[0] # pas multiple de 3
+    else:
+        return choices([1,-1], cum_weights=(0.09,1))[0] # multiple de 3
+# k = 0        
+# for i in range(10_000): k += tirage_B(k)
+# print('B:',k)
+# print(tirage_B(1))
+
 
 k = 0
-if randint(0,1) == 0: pass
-print(choices('PF', cum_weights=(0.5,1), k = 1000000).count('P'))
-# operator.add(n,1)
+# méthode naive
+# for i in range(1000000):
+#     if randint(0,1) == 0: 
+#         k += tirage_A()
+#     else:
+#         k += tirage_B(k)
+
+# méthode ternaire
+for i in range(1000000):
+    k += tirage_A() if randint(0,1) == 0 else tirage_B(k)
+    print("le ciel est", "bleu" if randint(0,1) == 0 else "gris")
+
 print(k)
